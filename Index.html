@@ -1,0 +1,55 @@
+<div style="background: rgba(255, 255, 255, 0.03); border: 2px dashed #00f2fe; border-radius: 30px; padding: 40px; text-align: center; margin-top: 50px;">
+    
+    <div style="margin-bottom: 20px;">
+        <span style="background: #ef4444; color: white; padding: 5px 15px; border-radius: 50px; font-size: 12px; font-weight: bold; animation: pulse 2s infinite;">LIVE AI HELP</span>
+    </div>
+
+    <h2 style="color: #fff;">Stuck with Connections?</h2>
+    <p style="color: #94a3b8;">Just Upload a Photo or Ask via Voice!</p>
+
+    <div style="display: flex; gap: 20px; justify-content: center; margin-top: 30px; flex-wrap: wrap;">
+        
+        <div style="background: #1e293b; padding: 25px; border-radius: 20px; width: 250px; border: 1px solid rgba(255,255,255,0.1); cursor: pointer;" onclick="document.getElementById('fileInput').click()">
+            <div style="font-size: 40px; margin-bottom: 15px;">📸</div>
+            <h4 style="color: #00f2fe; margin: 5px 0;">Photo Solver</h4>
+            <p style="font-size: 12px; color: #cbd5e1;">Upload circuit photo to find wiring errors.</p>
+            <input type="file" id="fileInput" style="display: none;" accept="image/*">
+        </div>
+
+        <div id="voiceBtn" style="background: #1e293b; padding: 25px; border-radius: 20px; width: 250px; border: 1px solid rgba(255,255,255,0.1); cursor: pointer;" onclick="startVoice()">
+            <div id="micIcon" style="font-size: 40px; margin-bottom: 15px;">🎙️</div>
+            <h4 style="color: #4facfe; margin: 5px 0;">Voice Ask</h4>
+            <p style="font-size: 12px; color: #cbd5e1;">Ask your doubt in Tamil or English.</p>
+        </div>
+
+    </div>
+
+    <div id="aiResponse" style="display: none; margin-top: 30px; background: rgba(0, 242, 254, 0.05); border: 1px solid #00f2fe; padding: 20px; border-radius: 15px; text-align: left;">
+        <h4 style="color: #00f2fe; margin-top: 0;">🤖 AI Analysis:</h4>
+        <p id="responseText" style="color: #fff; font-size: 14px; line-height: 1.6;"></p>
+    </div>
+</div>
+
+<style>
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.05); opacity: 0.8; }
+    100% { transform: scale(1); opacity: 1; }
+}
+</style>
+
+<script>
+function startVoice() {
+    const btn = document.getElementById('voiceBtn');
+    const mic = document.getElementById('micIcon');
+    btn.style.borderColor = '#ef4444';
+    mic.innerHTML = '🛑';
+    alert("AI is listening... (Tamil/English support active)");
+    // Real API logic goes here
+}
+
+function processPhoto() {
+    document.getElementById('aiResponse').style.display = 'block';
+    document.getElementById('responseText').innerHTML = "<b>Step 1:</b> Red wire in Pin 13 is loose.<br><b>Step 2:</b> Ground connection is missing on the sensor.<br><b>Fix:</b> Connect GND pin to the blue rail on your breadboard.";
+}
+</script>
